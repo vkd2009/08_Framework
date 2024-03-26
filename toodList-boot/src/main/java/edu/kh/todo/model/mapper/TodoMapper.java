@@ -29,7 +29,7 @@ public interface TodoMapper {
 	 */
 	List<Todo> selectAll();
 
-	/** 완료된 할 일 개ㅜ서ㅣ
+	/** 완료된 할 일 개수
 	 * @return
 	 */
 	int getCompleteCount();

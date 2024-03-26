@@ -115,4 +115,9 @@ public class TodoServiceImpl implements TodoService{
 	}
 	
 	
+	@Override
+	public List<Todo> selectList() {
+		return mapper.selectAll();
+	}
+	
 }
