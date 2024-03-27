@@ -63,7 +63,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("ajax")
 @Controller
-public class AjaxController {
+public class AjaxController {  
 
 	// @Autowired
 	// - 등록된 bean 중
