@@ -432,3 +432,7 @@ footer {
     background-color: var(--main-color);
   
   }
+
+  .cnotent-1 hr{
+    margin: 20px;
+  }

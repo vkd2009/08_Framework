@@ -25,4 +25,22 @@ public interface MyPageMapper {
 	 */
 	int changePw(Member loginMember);
 
+	/** 회원 탈퇴
+	 * @param loginMember
+	 * @return
+	 */
+	int loguout(Member loginMember);
+
+	/** 비밀번호 조회
+	 * @param loginMember
+	 * @return
+	 */
+	String selectPw(Member loginMember);
+
+	/** 같을 때 y로 변경
+	 * @param loginMember
+	 * @return
+	 */
+	int logOut(Member loginMember);
+
 }
