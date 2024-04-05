@@ -1,8 +1,11 @@
 package edu.kh.project.myPage.model.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import edu.kh.project.member.model.dto.Member;
+import edu.kh.project.myPage.model.dto.UploadFile;
 
 @Mapper
 public interface MyPageMapper {
@@ -39,8 +42,25 @@ public interface MyPageMapper {
 
 	/** 같을 때 y로 변경
 	 * @param loginMember
-	 * @return
+	 * @return result
 	 */
 	int logOut(Member loginMember);
+
+	/** 파일 정보를 DB에 삽입
+	 * @param uf
+	 * @return reuslt
+	 */
+	int insertUploadFile(UploadFile uf);
+
+	/** 목록 조회
+	 * @return
+	 */
+	List<UploadFile> fileList();
+
+	/** 프로필 이미지 변경
+	 * @param mem
+	 * @return result
+	 */
+	int profile(Member mem);
 
 }
