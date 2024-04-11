@@ -10,7 +10,7 @@ const createTd = (text) => {
 
 selectBookList.addEventListener("click", () => {
 
-fetch("/book/selectList")
+fetch("/selectList")
 
 .then(response => response.json())
 

@@ -1,5 +1,7 @@
 package com.sij.book.main.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -60,6 +62,12 @@ public class MainController {
 		
 		
 		return "redirect:" + path;
+	}
+
+	@ResponseBody
+	@PostMapping("selectList")
+	public List<Book> selectList(){
+		return service.selectList();
 	}
 	
 }

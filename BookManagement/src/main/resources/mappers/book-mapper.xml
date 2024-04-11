@@ -5,4 +5,8 @@
     INSERT INTO BOOK 
     VALUES (SEQ_BOOK_NO.NEXTVAL, #{bookTitle}, #{bookWriter}, #{bookPrice}, SYSTIMESTAMP)
   </insert>
+  
+  <select id="selectList" resultType="Book">
+  	SELECT * FROM "BOOK"
+  </select>
 </mapper>

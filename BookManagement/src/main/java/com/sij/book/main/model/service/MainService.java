@@ -1,6 +1,10 @@
 package com.sij.book.main.model.service;
 
+import java.util.List;
+
 import com.sij.book.main.model.dto.Book;
+
+
 
 public interface MainService {
 
@@ -9,6 +13,11 @@ public interface MainService {
 	 * @return
 	 */
 	int bookRegister(Book book);
+
+	/** 전체 조회
+	 * @return
+	 */
+	List<Book> selectList();
 
 	
 }

@@ -12,6 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @AllArgsConstructor
+@Builder
 public class Book {
 	
 	private int  bookNo;
