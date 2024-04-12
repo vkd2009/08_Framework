@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import edu.kh.project.common.interceptor.BoardNameInterceptor;
 import edu.kh.project.common.interceptor.BoardTypeInterceptor;
 
 // 인터셉터가 어떤 요청을 가로챌지 설정하는 클래스
@@ -18,6 +19,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	 	  // -> 관리는 Spring Container가 수행
 	public BoardTypeInterceptor boardTypeInterceptor() {
 		return new BoardTypeInterceptor();
+	}
+	
+	// 게시판 이름 추가하는 인터셉터 bean 등록
+	public BoardNameInterceptor boardNameInterceptor() {
+		return new BoardNameInterceptor();
 	}
 
 	
@@ -38,6 +44,9 @@ public class InterceptorConfig implements WebMvcConfigurer {
 							 "favicon.ico"); 
 		
 		
+		// Bean으로 등록된 BoardNameInterst
+		registry.addInterceptor(boardNameInterceptor())
+		.addPathPatterns("/board/**", "/editBoard/**");
 	}
 	
 	
