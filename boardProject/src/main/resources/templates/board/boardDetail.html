@@ -139,6 +139,28 @@
 
     <th:block th:replace="~{common/footer}"></th:block>
 
+    <script th:inline="javascript">
+        
+        /* 로그인 상태인 경우 로그인한 회원 번호를 전역 변수 저장 */
+
+        // session.loginMember?.memberNo 
+        // - session에서 loginMember를 얻어 왔는데 
+        //   null이 아닌 경우(?) [회원 번호(memberNo)] 얻어오기
+        
+        // - loginMember가 null인 경우 [null] 반환
+        const loginMemberNo = /*[[${session.loginMember?.memberNo}]]*/ "로그인 회원 번호" ;
+
+        /* 현재 게시글 번호를 전역 변수로 저장 */
+        const boardNo = /*[[${board.boardNo}]]*/ "게시글 번호";
+
+        /* 현재 게시글 좋아요 여부(boardLike)를 전역 변수로 저장 */
+        let likeCheck = /*[[${board.likeCheck}]]*/ "좋아요 여부";
+
+
+    </script>
+
+
+
 
     <script src="/js/board/boardDetail.js"></script>
     <script src="/js/board/comment.js"></script>
