@@ -132,7 +132,14 @@ for(let i=0 ; i<inputImageList.length ; i++){
 }
 
 
-// 작성 폼 유효성 검사
+
+
+
+
+
+
+
+// 작성 폼 유효성 검사  // 
 document.querySelector("#boardWriteFrm")
   .addEventListener("submit", e => {
 
