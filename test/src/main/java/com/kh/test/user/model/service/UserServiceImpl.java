@@ -11,12 +11,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 	
-	private UserMapper mapper;
+	private final UserMapper mapper;
 	
 	@Override
-	public User select(User user1) {
+	public User select(User user) {
 		
-		return mapper.select(user1);
+		return mapper.select(user);
 	}
 
 	

@@ -7,7 +7,6 @@ import com.kh.test.user.model.dto.User;
 @Mapper
 public interface UserMapper {
 
-	
 
 	User select(User user);
 

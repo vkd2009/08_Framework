@@ -102,3 +102,22 @@ if(updateBtn != null){ // 수정 버튼 존재
 
   })
 }
+
+
+// ----------------------------------------------------------
+
+/* 목록으로 돌아가는 버튼 */
+const goToListBtn = document.querySelector("#goToListBtn");
+
+goToListBtn.addEventListener("click", () => {
+
+  // 상세조회 : /board/1/2004?cp=1
+  // 목록     : /board/1?cp=1'
+  
+  let url = location.pathname;
+  url = url.substring(0, url.lastIndexOf("/"));
+
+  location.href = url + location.search;
+                        // 쿼리스트링
+
+})

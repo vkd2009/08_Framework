@@ -1,4 +1,4 @@
-package edu.kh.project.board.model.exception;
+ package edu.kh.project.board.model.exception;
 
 
 /**

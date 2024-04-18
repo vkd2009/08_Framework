@@ -1,7 +1,9 @@
 package com.kh.test.user.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,19 +17,17 @@ import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("user")
-public class UserController {
 
+public class UserController {
+	
 	private final UserService service;
 	
 	
-	
-	
-	@PostMapping("select")
+	@GetMapping("select")
 	public String select(
 			User user,
-			Model model,
-		 RedirectAttributes ra
+			Model model
+		
 		 ) {
 		
 		 user = service.select(user);
@@ -36,13 +36,13 @@ public class UserController {
 		
 		
 		if(user == null) {
-			path = "/searchSucess";
+			path = "searchFail";
 		}
 		if(user != null) {
 			model.addAttribute("user", user);
-			path = "/searchFail";
+			path = "searchSuccess";
 		}
 		
-		return "redirect:";
+		return  path;
 	}
 }

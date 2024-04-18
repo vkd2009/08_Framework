@@ -7,29 +7,25 @@
 </head>
 <body>
     <h1>회원 정보</h1>
-    <thead>
+    <table border="1" th:object="${user}">
+      <tr>
         <th>회원정보</th>
         <th>회원아이디</th>
         <th>회원이름</th>
         <th>회원 나이</th>
-      </thead>
+      </tr>
   
-  
-      <tbody>
       
-        <tr th:each="user : ${userList}" th:object="${user}">
-          <td th:text="*{userNo}">회원정보</td>
+      
+          <th th:text="*{userNo}">회원정보</th>
           
-          <td>
-            <a th:text="*{userId}">회원아이디</a>
-          </td>
+          <th th:text="*{userId}">회원아이디></th>
   
-          <td th:text="*{userName}">회원이름</td>
+          <th th:text="*{userName}">회원이름</th>
   
-          <td th:text="*{userAge}">회원 나이</td>
+          <th th:text="*{userAge}">회원 나이</th>
         </tr>
   
-      </tbody>
     </table>
 </body>
 </html>
