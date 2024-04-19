@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header .logo {
+    float: left;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav ul {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    float: left;
+    margin-left: 20px;
+}
+
+header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .user-links {
+    float: right;
+}
+
+main {
+    padding: 20px 0;
+}
+
+.board {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.post {
+    margin-bottom: 20px;
+}
+
+.post h3 {
+    margin-top: 0;
+}
+
+.post p {
+    margin: 5px 0;
+}
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>게시판</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h2>게시판</h2>
+            <div class="board">
+                <div class="post">
+                    <h3>게시물 제목</h3>
+                    <p>작성자: 사용자1 | 작성일: 2024-04-19</p>
+                    <p>게시물 내용 요약...</p>
+                </div>
+                <div class="post">
+                    <h3>게시물 제목</h3>
+                    <p>작성자: 사용자2 | 작성일: 2024-04-18</p>
+                    <p>게시물 내용 요약...</p>
+                </div>
+                <!-- 여러 개의 게시물이 반복됩니다 -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>
