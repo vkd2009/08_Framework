@@ -1,6 +1,6 @@
-
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,29 +12,27 @@
   <!-- myPage 전용 CSS -->
   <link rel="stylesheet" href="/css/myPage/myPage-style.css">
 </head>
+
 <body>
 
   <main>
-
     <!-- 헤더 추가 -->
     <th:block th:replace="~{common/header}"></th:block>
 
     <section class="myPage-content">
 
-      <!-- 사이드 메뉴(왼쪽) 추가 -->
+      <!-- 사이드 메뉴 추가(왼쪽) -->
       <th:block th:replace="~{myPage/sideMenu}"></th:block>
 
       <!-- 마이페이지 본문(오른쪽) -->
       <section class="myPage-main">
         <h1 class="myPage-title">프로필</h1>
-        <span class="myPage-subject">프로필 이미지를 변경할 수 있습니다.</span>
+        <span class="myPage-subject">프로필 이미지를 변경 가능</span>
 
         <form action="profile" method="POST" name="myPageFrm" id="profile" enctype="multipart/form-data">
           <div class="profile-image-area">
 
-            <img th:with="user=#{user.default.image}" 
-                th:src="${session.loginMember.profileImg ?: user }" 
-                id="profileImg">
+            <img th:with="user=#{user.default.image}" th:src="${session.loginMember.profileImg ?: user }" id="profileImg">
 
           </div>
           <span id="deleteImage">x</span>
@@ -63,13 +61,15 @@
 
   </main>
 
-   <!-- 푸터 추가 -->
-   <th:block th:replace="~{common/footer}"></th:block>
+  <!-- 푸터 추가 -->
+  <th:block th:replace="~{common/footer}"></th:block>
 
-   <script th:inline="javascript">
-     const loginMemberProfileImg = /*[[${session.loginMember.profileImg}]]*/ "회원 프로필 이미지";
-   </script>
+  <script th:inline="javascript">
+    const loginMemberProfileImg = /*[[${session.loginMember.profileImg}]]*/ "회원 프로필 이미지";
+  </script>
 
-    <script src="/js/myPage/myPage.js"></script>
+  <script src="/js/myPage/myPage.js"></script>
+
 </body>
+
 </html>

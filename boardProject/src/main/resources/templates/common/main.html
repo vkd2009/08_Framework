@@ -9,13 +9,15 @@
     <!-- 조각을 나타내는 ~{} 메세지를 나타네는 #{} -->
     <!-- templates/common/common.html 조각으로 추가 -->
     <th:block th:replace="~{common/common}"></th:block>
-</head>
-<body>
-
-  <main>
-
-    <!-- common/header.html 을 조각으로 추가 -->
-    <th:block th:replace="~{common/header}"></th:block>
+    <link rel="stylesheet" href="css/main-style.css">
+  </head>
+  <body>
+    
+    <main>
+      
+      <!-- common/header.html 을 조각으로 추가 -->
+      <th:block th:replace="~{common/header}"></th:block>
+      
 
 
     <!-- 메인 페이지 내용 -->
@@ -131,21 +133,22 @@
 
           <article class="login-area">
 
-            <a href="/myPage/profile ">
-              <!-- 프로필 이미지 -->
-              
-              <!-- messages.properties에 작성된 기본 사용자 이미지 -->
-              <img th:with="user=#{user.default.image}" 
-                  th:src="${session.loginMember.profileImg ?: user }" 
-                            id="memberProfile"
-                            alt="프로필 이미지 없음" >
-            </a>
-
             <!-- 닉네임, 이메일 로그아웃 버튼 영역 -->
             <div class="my-info" th:object="${session.loginMember}">
                
               <div>
-                <a href="/myPage/info" id="nickname" th:text="*{memberNickname}">닉네임</a>
+                <a href="/myPage/profile ">
+                  <!-- 프로필 이미지 -->
+                  
+                  <!-- messages.properties에 작성된 기본 사용자 이미지 -->
+                  <img th:with="user=#{user.default.image}" 
+                      th:src="${session.loginMember.profileImg ?: user }" 
+                                id="memberProfile"
+                                class="memberProfile"
+                                alt="프로필 이미지 없음" >
+                </a>
+
+                <a href="/myPage/info" id="nickname" th:text="*{memberNickname}">닉 네임</a>
 
                 <a href="/member/logout" id="logoutBtn">로그아웃</a>
               </div>

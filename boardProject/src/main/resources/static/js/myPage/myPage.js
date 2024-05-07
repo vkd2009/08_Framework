@@ -361,7 +361,7 @@ imageInput.addEventListener("change", changeImageFn);
 
 // ---------- x버튼 클릭 시 기본 이미지로 변경 -------------
 deleteImage.addEventListener("click", () => {
-
+ 
   // 프로필 이미지(img)를 기본 이미지로 변경
   profileImg.src = "/images/user.png";
 

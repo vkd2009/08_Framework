@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import oracle.jdbc.OracleDatabaseException;
 
 /* @SessionAttributes( {"key", "key", ...} )
  * 
@@ -236,14 +238,25 @@ public class MemberController {
 		@RequestParam("memberEmail") String memberEmail, 
 		Model model, 
 		RedirectAttributes ra) {
-		
-		Member loginMember = service.quickLogin(memberEmail);
+	
+//		try {
+			Member loginMember = service.quickLogin(memberEmail);
 		
 		if( loginMember == null ) {
 			ra.addFlashAttribute("message", "해당 이메일 회원이 존재하지 않습니다");
 		}else {
 			model.addAttribute("loginMember", loginMember);
-		}
+		}     
+		
+//	} catch(Exception e) {
+//		// 매개변수 e : 발생된 예외 객체
+//		e.printStackTrace();
+//		
+//		model.addAttribute("e", e);
+//		
+//		return "error/500";
+//	}
+		
 		
 		return "redirect:/";
 	}
@@ -257,8 +270,28 @@ public class MemberController {
 	}
 	
 	
-}
 
+
+	//@ExceptionHandler(OracleDatabaseException.class)
+	// -> MemberController 내부에 발생되는 
+	//    모든 OracleDatabaseException을 잡아서 처리하는 메서드
+
+	/** MemberController 내부 모든 예외 처리 메서드
+	 * @param e : 던져진 예외 객체
+	 * @param model : Spring에서 데이터 전달하는 용도의 객체(request)
+	 * @return
+	 */
+			          // 예외 종류
+//	@ExceptionHandler(Exception.class)
+//	public String memberExcptionHandler(Exception e, Model model) {
+//		
+//		e.printStackTrace(); // 콘솔에 예외 출력
+//		
+//		model.addAttribute("e", e);
+//		
+//		return "error/500";
+//	}
+ }
 
 /* Cookie란?
  * - 클라이언트 측(브라우저)에서 관리하는 데이터(파일 형식)
@@ -274,6 +307,26 @@ public class MemberController {
  * 
  * - Cookie는 HttpServletResponse를 이용해서 생성,
  * 	 클라이언트에게 전달(응답) 할 수 있다
+ */
+
+
+
+
+/* Spring 예외 처리 방법
+ * 
+ * 1. 메서드에서 직접 처리 (try-catch, throws)
+ * 
+ * 2. 컨트롤러 클래스에서 발생하는 예외를 모아서 처리
+ *    
+ *    1) 컨트롤러 클래스에 예외 처리를 위한 메서드를 작성
+ *    2) 메서드 위에 @ExceptionHandler 어노테이션 추가
+ *    
+ *
+ *  3. 프로젝트에서 발생하는 예외를 모아서 처리 (프로젝트 단위)
+ *  
+ *  	1) 별도 클래스 생성
+ *  	2) 클래스 위에 @ControllerAdvice 어노테이션 추가
+ *  	3) 클래스 내부에 @ExceptionHadnler가 추가된 메서드 작성
  */
 
 

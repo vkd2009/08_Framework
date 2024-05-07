@@ -24,7 +24,7 @@
   }
 
   /* 화면 너비가 1140px이 되기 전에 적용할 css */
-  @media (max-width : 1140px) {
+  @media (max-width : 1140px) { 
     main{ width: 100vw; }
   }
 
@@ -295,16 +295,22 @@ footer {
 
   /* *********** 로그인 되었을 때 ********** */
   .login-area{
-    height: 120px;
+    height: 110px;
     padding: 30px 10px;
     margin: 10px 0;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
     align-items: center;
+    
   }
 
-  #memberProfile{
+  #memberProfile > a {
+    width: 56px; /* 이미지를 감싸는 요소(a 태그)의 크기 조정 */
+    height: 56px;
+  }
+
+  .memberProfile{
     width: 64px;
     height: 64px;
     border-radius: 50%;
