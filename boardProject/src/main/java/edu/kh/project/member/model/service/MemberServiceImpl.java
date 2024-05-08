@@ -115,6 +115,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.checkNickname(memberNickname);
 	}
 	
+	
+	@Transactional
+	// class에서가 아닌 메서드 위에 작성해야 된다
 	// 빠른 로그인
 	// -> 일반 로그인에서 비밀번호 비교만 제외
 	@Override
