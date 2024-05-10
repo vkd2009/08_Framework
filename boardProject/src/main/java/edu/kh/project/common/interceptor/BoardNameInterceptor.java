@@ -34,29 +34,33 @@ public class BoardNameInterceptor implements HandlerInterceptor{
 		// Unifrom Resource Identifier : 통합 자원 식별자
 		// - 자원 이름(주소)만 봐도 무엇인지 구별할 수 있는 문자열
 		String uri = request.getRequestURI();
+		try {
 		
-		//log.debug(" uri : " + uri);
-										// ["", "board", "1"]
-		int boardCode = Integer.parseInt( uri.split("/")[2] );
-		
-		
-		// boardTypeList에서 boardCode를 하나씩 꺼내어 비교
-		for(Map<String, Object> boardType : boardTypeList) {
-			
-			// String.valueOf(값) : String으로 변환
-			
-			int temp =
-			Integer.parseInt(String.valueOf( boardType.get("boardCode") ));
+			//log.debug(" uri : " + uri);
+											// ["", "board", "1"]
+			int boardCode = Integer.parseInt( uri.split("/")[2] );
 			
 			
-			// 비교 결과가 같다면 
-			// request scope에 boardName을 추가
-			if(temp == boardCode) {
-				request.setAttribute("boardName", boardType.get("boardName"));
+			// boardTypeList에서 boardCode를 하나씩 꺼내어 비교
+			for(Map<String, Object> boardType : boardTypeList) {
+				
+				// String.valueOf(값) : String으로 변환
+				
+				int temp =
+				Integer.parseInt(String.valueOf( boardType.get("boardCode") ));
+				
+				
+				// 비교 결과가 같다면 
+				// request scope에 boardName을 추가
+				if(temp == boardCode) {
+					request.setAttribute("boardName", boardType.get("boardName"));
+				}
+				
 			}
-			
-		}
 		
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
 	}
