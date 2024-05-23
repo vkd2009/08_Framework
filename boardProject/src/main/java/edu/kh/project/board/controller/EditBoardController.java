@@ -64,7 +64,7 @@ public class EditBoardController {
 		@ModelAttribute Board inputBoard,
 		@SessionAttribute("loginMember") Member loginMember,
 		@RequestParam("images") List<MultipartFile> images,
-		RedirectAttributes ra) throws IllegalStateException, IOException {
+		RedirectAttributes ra) throws IllegalStateException, IOException{
 		
 		/* ** 전달되는 파라미터 확인 **
 		 * 

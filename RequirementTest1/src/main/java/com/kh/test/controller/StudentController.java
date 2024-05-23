@@ -23,7 +23,7 @@ public class StudentController implements StudentService{
 
 	private final StudentService service;
 	
-	@ResponseBody
+	
 	@GetMapping("selectList")
 	public List<Student> selectList() {
 		return service.selectList();
